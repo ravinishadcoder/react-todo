@@ -1,0 +1,22 @@
+.todo{
+    display: flex;
+    margin-left: 38%;
+    border: 1px solid rebeccapurple;
+    width: 365px;
+    height: 45px;
+    align-items: center;
+    font-size: 25px;
+    margin-top: 5px;
+    border-radius: 15px;
+}
+
+.striked{
+    text-decoration: line-through;
+}
+
+.input{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px; 
+}
