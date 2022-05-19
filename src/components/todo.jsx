@@ -2,40 +2,27 @@ import React from "react";
 import styles from './todo.module.css'
 import { useState } from "react";
 import Todoitem from "./todolist";
-
+import TodoInput from "./todoInput"
+import Todolist from "./todoItem"
+import { v4 as uuidv4 } from 'uuid';
 const Todo = () => {
-  const [value, setValue] = useState("");
+ 
   const [todos, setTodos] = useState([]);
+  const addTodo = (newTodo)=>{
+    setTodos([...todos,{id:uuidv4(),value:newTodo}])
+  }
   return (
     <>
     <h2>TODO LIST</h2>
-    <div className={styles.input}>
-      
-      <input style={{height:"40px", width:"300px",borderRadius:"15px"}}
-        type="text"
-        placeholder="Add to do"
-        value={value}
-        onChange={(e) =>{ 
-        setValue(e.target.value)
-        //console.log(e.target.value)
-        }
-        }
-      />
-      
-      <button style={{height:"45px", width:"45px",fontSize:"15px",borderRadius:"15px"}}
-      onClick={()=>{
-          setTodos([...todos,{id:Date.now(),value:value}]);
-          setValue("");
-          
-      }}
-      >+
-      </button>
-      </div>
-      <div>
+    <TodoInput addTodo={addTodo}/>
+    <Todoitem>
       {todos.map((todo)=>(
-          <Todoitem key={todo.id} todo={todo} ></Todoitem>
-      ))}
-      </div>
+        
+        <Todolist key={todo.id} value={todo.value}/> 
+        
+      ))} 
+    </Todoitem>
+     
       </>
   );
 };
