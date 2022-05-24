@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Todoitem = ({children}) => {
+  //console.log(children)
   return (
     <div>
       <h2>Here is your Todo List</h2>
